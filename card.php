@@ -5,10 +5,10 @@ $added_by = $_SESSION['flashcard_user'];
 
 function addCard($question, $answer, $is_published=false)
 {
-    global $connection;
+    global $conn;
     global $added_by;
 
-    $query = mysqli_query($connection, "INSERT INTO cards (question, answer, is_published, added_by) VALUES ('$question', '$answer', '$is_published', '$added_by');");
+    $query = mysqli_query($conn, "INSERT INTO cards (question, answer, is_published, added_by) VALUES ('$question', '$answer', '$is_published', '$added_by');");
     if($query){
         return true;
     }
@@ -21,7 +21,7 @@ if(isset($_POST['add'])){
     $answer = trim($_POST['answer']);
     $answer = nl2br($answer);
     $answer = htmlentities($answer);
-    $answer = mysqli_real_escape_string($connection, $answer);
+    $answer = mysqli_real_escape_string($conn, $answer);
     $is_published=(isset($_POST['publish']) ? true : false);
 
     if(addCard($question, $answer, $is_published)){
@@ -35,7 +35,7 @@ if(isset($_POST['saveandadd'])){
     $answer = trim($_POST['answer']);
     $answer = nl2br($answer);
     $answer = htmlentities($answer);
-    $answer = mysqli_real_escape_string($connection, $answer);
+    $answer = mysqli_real_escape_string($conn, $answer);
     $is_published=(isset($_POST['publish']) ? true : false);
 
     if(addCard($question, $answer, $is_published)){
