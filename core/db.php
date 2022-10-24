@@ -11,4 +11,8 @@ if($conn){
    die("Failed" . $mysqli_connect_error());
 }
 
+function redirect($page){
+   header("Location: $page");
+}
+
 ?>

@@ -9,7 +9,6 @@ if(isset($_GET['logout'])){
     unset($_SESSION['flashcard']);
     header("Location: index.php");
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +26,7 @@ if(isset($_GET['logout'])){
         <h3 class="navbar-brand">Flashcard App</h3>
         <ul class="navbar-nav mr-auto">
             <li class="nav-item"><span class="nav-link">Welcome, <?php echo $_SESSION['flashcard'];?></span></li>
-            <li class="nav-item"><a href="#" class="nav-link">Add flashcard</a></li>
+            <li class="nav-item"><a href="card.php" class="nav-link">Add flashcard</a></li>
             <li class="nav-item"><a href="?logout" class="nav-link">Logout</a></li>
         </ul>
     </nav>
